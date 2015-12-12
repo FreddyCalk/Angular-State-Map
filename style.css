@@ -1,0 +1,47 @@
+#wrapper svg{
+	background-color: #cacaca;
+}
+.blue{
+	fill: blue;
+}
+.red{
+	fill: red;
+}
+.open{
+	fill: #c2b280;
+}
+.state{
+	font-size: 15px;
+	color:white;
+}
+.state-info{
+	color:white;
+	font-size: 12px;
+	font-weight:bold;
+}
+#poll-container{
+	position: relative;
+	top:30px;
+	margin-left: 140px;
+	width:500px;
+	height:20px;
+	background-color: white;
+}
+#poll-container #rebs{
+	height:100%;
+	background-color: red;
+	float:left;
+	display:inline;
+}
+#poll-container #open{
+	height:100%;
+	background-color: #c2b280;
+	float: left;
+	display:inline;
+}
+#poll-container #dems{
+	height:100%;
+	background-color: blue;
+	float:left;
+	display:inline;
+}

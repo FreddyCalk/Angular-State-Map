@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="style.css">
+	<script src="angular.min.js"></script>
+	<script src="state-objects.js"></script>
+	<script src="controller.js"></script>
+</head>
+<body ng-controller="mapController">
+	<div id="wrapper">
+		<div id="poll-container">
+			<div id="dems"></div>
+			<div id="open"></div>
+			<div id="rebs"></div>
+		</div>
+		<svg width="730" height="500">
+			<g class='states' ng-repeat="state in bigStates" click-state>
+				<path class="state {{state.stateColor}}" ng-attr-d="{{state.vector}}" stroke="white"></path>
+				<foreignObject ng-attr-x='{{state.nameX}}' ng-attr-y='{{state.nameY}}'>
+
+					<body>
+						<div class="state-info">{{state.abbr}}<br/> {{state.electoralVotes}}</div>
+					</body>
+
+				</foreignObject>
+			</g>
+		</svg>
+	</div>
+</body>
+</html>
