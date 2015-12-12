@@ -27,16 +27,20 @@ myApp.directive('clickState', function (){
 });
 myApp.controller('mapController', function ($scope, $http){
 	var lastSmallState = "200";
-	var bigStates = [];
+	var newStates = states;
 	updatePollMeter();
-	for(i=0; i<states.length;i++){
-		if(states[i].nameX === ""){
-			states[i].nameX = "700"
-			states[i].nameY = lastSmallState;
+	for(i=0; i<newStates.length;i++){
+		if(newStates[i].nameX === ""){
+			newStates[i].nameX = "700"
+			newStates[i].nameY = lastSmallState;
 			lastSmallState = Number(lastSmallState)+30;
 		}
 	}
-	$scope.bigStates = states;
+	$scope.states = newStates;
+
+	$scope.resetMap = function(){
+		window.location.href = "./index.html";
+	}
 })
 
 function getNewColor(state){

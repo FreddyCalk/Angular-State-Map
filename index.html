@@ -21,7 +21,7 @@
 			<div id="rebs"></div>
 		</div>
 		<svg width="730" height="500">
-			<g class='states' ng-repeat="state in bigStates" click-state>
+			<g class='states' ng-repeat="state in states" click-state>
 				<path class="state {{state.stateColor}}" ng-attr-d="{{state.vector}}" stroke="white"></path>
 				<foreignObject ng-attr-x='{{state.nameX}}' ng-attr-y='{{state.nameY}}'>
 
@@ -33,5 +33,6 @@
 			</g>
 		</svg>
 	</div>
+	<input id="reset-button" type="button" value="reset" ng-click="resetMap()">
 </body>
 </html>

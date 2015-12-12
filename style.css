@@ -63,3 +63,14 @@
 	float:left;
 	display:inline;
 }
+#reset-button{
+	width:150px;
+	height:30px;
+	background-color: #33f;
+	border-radius: 5px;
+	color:white;
+	position: absolute;
+	top:470px;
+	left:400px;
+
+}
