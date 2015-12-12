@@ -12,12 +12,12 @@
 <body ng-controller="mapController">
 	<div id="wrapper">
 		<div id="number-container">
-			<div id="dem-name">Democrats <span id="democrats"></span></div>
-			<div id="reb-name"><span id="republicans"></span> Republicans</div>
+			<div id="dem-name">Democrats <span id="democrats">{{demVotes}}</span></div>
+			<div id="reb-name"><span id="republicans">{{rebVotes}}</span> Republicans</div>
 		</div>
 		<div id="poll-container">
 			<div id="dems"></div>
-			<div id="open"></div>
+			<div id="open">{{openVotes}}</div>
 			<div id="rebs"></div>
 		</div>
 		<svg width="730" height="500">
@@ -25,9 +25,7 @@
 				<path class="state {{state.stateColor}}" ng-attr-d="{{state.vector}}" stroke="white"></path>
 				<foreignObject ng-attr-x='{{state.nameX}}' ng-attr-y='{{state.nameY}}'>
 
-					<body>
-						<div class="state-info">{{state.abbr}}<br/> {{state.electoralVotes}}</div>
-					</body>
+					<div class="state-info {{state.stateColor}}">{{state.abbr}}<br/> {{state.electoralVotes}}</div>
 
 				</foreignObject>
 			</g>
