@@ -1,11 +1,11 @@
-#wrapper svg{
+#wrapper{
 	background-color: #cacaca;
 }
 .blue{
-	fill: blue;
+	fill: #00c;
 }
 .red{
-	fill: red;
+	fill: #c00;
 }
 .open{
 	fill: #c2b280;
@@ -19,17 +19,33 @@
 	font-size: 12px;
 	font-weight:bold;
 }
+#number-container #reb-name, #number-container #dem-name{
+	position: absolute;
+	display: inline;
+	top:10px;
+	font-size:14px;
+}
+#number-container #reb-name{
+	color: #c00;
+	left:600px;
+}
+#number-container #dem-name{
+	color: #00c;
+	left:110px;
+}
+#number-container #democrats, #number-container #republicans{
+	font-size: 24px;
+}
 #poll-container{
 	position: relative;
 	top:30px;
-	margin-left: 140px;
-	width:500px;
+	margin-left: 100px;
+	width:600px;
 	height:20px;
-	background-color: white;
 }
 #poll-container #rebs{
 	height:100%;
-	background-color: red;
+	background-color: #c00;
 	float:left;
 	display:inline;
 }
@@ -38,10 +54,12 @@
 	background-color: #c2b280;
 	float: left;
 	display:inline;
+	text-align: center;
+	color:white;
 }
 #poll-container #dems{
 	height:100%;
-	background-color: blue;
+	background-color: #00c;
 	float:left;
 	display:inline;
 }

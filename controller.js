@@ -56,6 +56,9 @@ function getNewColor(state){
 	}
 }
 function updatePollMeter(){
+	document.getElementById('democrats').innerHTML = blueVotes;
+	document.getElementById('republicans').innerHTML = redVotes;
+	document.getElementById('open').innerHTML = openVotes;
 	document.getElementById('dems').style.width = 100*(blueVotes/totalVotes) +'%';
 	document.getElementById('rebs').style.width = 100*(redVotes/totalVotes) +'%';
 	document.getElementById('open').style.width = 100*(openVotes/totalVotes) +'%';
