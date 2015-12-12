@@ -66,10 +66,11 @@
 #reset-button{
 	width:150px;
 	height:30px;
-	background-color: #33f;
+	background-color: #3c3;
 	border-radius: 5px;
 	color:white;
 	position: absolute;
+	font-size: 18px;
 	top:470px;
 	left:400px;
 
