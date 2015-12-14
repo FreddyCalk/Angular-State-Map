@@ -43,7 +43,7 @@ myApp.controller('mapController', function ($scope, $http){
 	$scope.states = newStates;
 
 	$scope.resetMap = function(){
-		window.location.href = "./index.html";
+		window.location.href = "./";
 	}
 })
 
