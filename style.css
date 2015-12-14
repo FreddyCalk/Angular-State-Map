@@ -23,6 +23,7 @@
 	height:20px;
 	width:20px;
 	color:white;
+	border-radius: 3px;
 	font-size: 9px;
 	font-weight:bold;
 	text-align: center;
@@ -30,12 +31,13 @@
 #number-container #reb-name, #number-container #dem-name{
 	position: absolute;
 	display: inline;
+	font-family: helvetica;
 	top:40px;
 	font-size:14px;
 }
 #number-container #reb-name{
 	color: #c00;
-	left:640px;
+	left:627px;
 }
 #number-container #dem-name{
 	color: #00c;

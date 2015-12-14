@@ -4,7 +4,6 @@ myApp.directive('clickState', function (){
 	return {
 		link: function($scope, element){
 			element.bind('click',function(){
-				console.log(element,$scope)
 				var newColor = getNewColor($scope.state);
 				var votes = $scope.state.electoralVotes;
 				$scope.state.stateColor = newColor;
@@ -23,9 +22,6 @@ myApp.directive('clickState', function (){
 					openVotes += votes;
 					blueVotes -= votes;
 				}
-				$scope.demVotes = blueVotes;
-				$scope.rebVotes = redVotes;
-				$scope.openVotes = openVotes;
 				updatePollMeter();
 			})
 		}
@@ -40,15 +36,10 @@ myApp.controller('mapController', function ($scope, $http){
 		if(newStates[i].nameX === ""){
 			newStates[i].nameX = "700"
 			newStates[i].nameY = lastSmallState;
-			lastSmallState = Number(lastSmallState)+35;
-			smallStates.push(newStates[i]);
+			lastSmallState = Number(lastSmallState)+30;
 		}
 	}
 
-	console.log(smallStates)
-	$scope.demVotes = blueVotes;
-	$scope.rebVotes = redVotes;
-	$scope.openVotes = openVotes;
 	$scope.states = newStates;
 
 	$scope.resetMap = function(){
@@ -73,6 +64,8 @@ function getNewColor(state){
 	}
 }
 function updatePollMeter(){
+	document.getElementById('republicans').innerHTML = redVotes;
+	document.getElementById('democrats').innerHTML = blueVotes;
 	document.getElementById('open').innerHTML = openVotes;
 	document.getElementById('dems').style.width = 100*(blueVotes/totalVotes) +'%';
 	document.getElementById('rebs').style.width = 100*(redVotes/totalVotes) +'%';
