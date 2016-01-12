@@ -82,62 +82,62 @@ myApp.controller('mapController', function ($scope, $http){
 	}
 })
 
-function powerSet (states) {
+// function powerSet (states) {
 
-    // the power set of [] is [[]]
-    if(states.length === 0) {
-        return [[]];
-    }
-    // remove and remember the last element of the array
-    var lastElement = states.pop();
+//     // the power set of [] is [[]]
+//     if(states.length === 0) {
+//         return [[]];
+//     }
+//     // remove and remember the last element of the array
+//     var lastElement = states.pop();
 
-    // take the powerset of the rest of the array
-    var restPowerSet = powerSet(states);
+//     // take the powerset of the rest of the array
+//     var restPowerSet = powerSet(states);
 
 
-    // for each set in the power set of arr minus its last element,
-    // include that set in the powerset of arr both with and without
-    // the last element of arr
-    var powerset = [];
-    for(var i = 0; i < restPowerSet.length; i++) {
+//     // for each set in the power set of arr minus its last element,
+//     // include that set in the powerset of arr both with and without
+//     // the last element of arr
+//     var powerset = [];
+//     for(var i = 0; i < restPowerSet.length; i++) {
 
-        var set = restPowerSet[i];
+//         var set = restPowerSet[i];
 
-        // without last element
-        powerset.push(set);
+//         // without last element
+//         powerset.push(set);
 
-        // with last element
-        set = set.slice(); // create a new array that's a copy of set
-        set.push(lastElement);
-        powerset.push(set);
-    }
-   	return powerset;
-};
+//         // with last element
+//         set = set.slice(); // create a new array that's a copy of set
+//         set.push(lastElement);
+//         powerset.push(set);
+//     }
+//    	return powerset;
+// };
 
-function subsetsGreaterThan (arr, number) {
+// function subsetsGreaterThan (arr, number) {
 
-    // all subsets of arr
-    var powerset = powerSet(arr);
+//     // all subsets of arr
+//     var powerset = powerSet(arr);
 
-    // subsets summing less than or equal to number
-    var subsets = [];
+//     // subsets summing less than or equal to number
+//     var subsets = [];
 
-    for(var i = 0; i < powerset.length; i++) {
+//     for(var i = 0; i < powerset.length; i++) {
 
-        var subset = powerset[i];
+//         var subset = powerset[i];
 
-        var sum = 0;
-        for(var j = 0; j < subset.length; j++) {
-            sum += subset[j];
-        }
+//         var sum = 0;
+//         for(var j = 0; j < subset.length; j++) {
+//             sum += subset[j];
+//         }
 
-        if(sum >= number) {
-            subsets.push(subset);
-        }
-    }
+//         if(sum >= number) {
+//             subsets.push(subset);
+//         }
+//     }
 
-    return subsets;
-};
+//     return subsets;
+// };
 
 
 
