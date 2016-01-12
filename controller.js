@@ -23,14 +23,39 @@ myApp.directive('clickState', function (){
 					blueVotes -= votes;
 				}
 				updatePollMeter();
+
+				if(redVotes > 269){
+					var html = '<div>';
+						html += "<h1>YOU HAVE LET THE REPUBLICANS WIN</h1>";
+						html += '<a href="https://www.youtube.com/watch?v=h6oxvm9Q68Q" target="_blank">';
+						html += '<img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Donald_August_19_(cropped).jpg">';
+						html += '</a></div>';
+
+					document.getElementById('wrapper').innerHTML = "";
+					document.getElementById('wrapper').innerHTML = html;			
+				}
+				if(blueVotes > 269){
+					var html = '<div>';
+						html += "<h1>YOU HAVE LET THE DEMOCRATS WIN</h1>";
+						html += '<a href="https://www.youtube.com/watch?v=pfmwGAd1L-o" target="_blank">';
+						html += '<img src="http://www.motherjones.com/files/bernie-sanders.gif">';
+						html += '</a></div>';
+					document.getElementById('wrapper').innerHTML = "";
+					document.getElementById('wrapper').innerHTML = html;
+				}
+
+
 			})
 		}
 	}
 });
+
+
 myApp.controller('mapController', function ($scope, $http){
 	var lastSmallState = "200";
 	var newStates = states;
 	var smallStates = []
+	var openStates = [];
 	updatePollMeter();
 	for(i=0; i<newStates.length;i++){
 		if(newStates[i].nameX === ""){
@@ -40,12 +65,81 @@ myApp.controller('mapController', function ($scope, $http){
 		}
 	}
 
+	for(i=0; i < states.length; i++){
+		if(states[i].stateColor == 'open'){
+			openStates.push(states[i].electoralVotes);
+		}
+	}
+	console.log(openStates);
+	// var winningRepublicanCombos = subsetsGreaterThan(openStates,80);
+	// var winningDemocraticCombos = subsetsGreaterThan(openStates,57);
+	// console.log(winningRepublicanCombos);
+	// console.log(winningDemocraticCombos);
 	$scope.states = newStates;
 
 	$scope.resetMap = function(){
-		window.location.href = "./";
+		window.location.href = "./index.html";
 	}
 })
+
+function powerSet (states) {
+
+    // the power set of [] is [[]]
+    if(states.length === 0) {
+        return [[]];
+    }
+    // remove and remember the last element of the array
+    var lastElement = states.pop();
+
+    // take the powerset of the rest of the array
+    var restPowerSet = powerSet(states);
+
+
+    // for each set in the power set of arr minus its last element,
+    // include that set in the powerset of arr both with and without
+    // the last element of arr
+    var powerset = [];
+    for(var i = 0; i < restPowerSet.length; i++) {
+
+        var set = restPowerSet[i];
+
+        // without last element
+        powerset.push(set);
+
+        // with last element
+        set = set.slice(); // create a new array that's a copy of set
+        set.push(lastElement);
+        powerset.push(set);
+    }
+   	return powerset;
+};
+
+function subsetsGreaterThan (arr, number) {
+
+    // all subsets of arr
+    var powerset = powerSet(arr);
+
+    // subsets summing less than or equal to number
+    var subsets = [];
+
+    for(var i = 0; i < powerset.length; i++) {
+
+        var subset = powerset[i];
+
+        var sum = 0;
+        for(var j = 0; j < subset.length; j++) {
+            sum += subset[j];
+        }
+
+        if(sum >= number) {
+            subsets.push(subset);
+        }
+    }
+
+    return subsets;
+};
+
+
 
 function getNewColor(state){
 	var color = state.stateColor

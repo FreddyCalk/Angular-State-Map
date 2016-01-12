@@ -83,5 +83,8 @@
 	font-size: 18px;
 	top:530px;
 	left:450px;
-
+	cursor:pointer;
+}
+.states{
+	cursor:pointer;
 }
